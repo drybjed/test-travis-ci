@@ -1,0 +1,18 @@
+---
+
+language: 'python'
+python: '2.7'
+
+virtualenv:
+  system_site_packages: True
+
+before_install: True
+install: True
+
+script:
+  - sudo apt-get -yq install ferm
+  - sudo cp -f ferm/ferm.conf /etc/ferm/ferm.conf
+  - sudo sed -i 's/ENABLED="no"/ENABLED="yes"/' /etc/default/ferm
+  - sudo /etc/init.d/ferm restart
+  - sudo iptables -v -L
+
