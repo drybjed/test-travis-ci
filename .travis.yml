@@ -10,9 +10,8 @@ before_install: True
 install: True
 
 script:
-  - sudo apt-get -yq install ferm
-  - sudo cp -f ferm/ferm.conf /etc/ferm/ferm.conf
-  - sudo sed -i 's/ENABLED="no"/ENABLED="yes"/' /etc/default/ferm
-  - sudo /etc/init.d/ferm restart
-  - sudo iptables -v -L
+  - sudo apt-get -yq --purge remove 'postgresql*'
+  - sudo apt-get -yq install postgresql-9.1
+  - sudo ls -lR /etc/postgresql
+  - sudo ls -lR /var/lib/postgresql
 
