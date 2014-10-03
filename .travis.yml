@@ -10,8 +10,6 @@ before_install: True
 install: True
 
 script:
-  - sudo apt-get -yq --purge remove 'postgresql*'
-  - sudo apt-get -yq install postgresql-9.1
-  - sudo ls -lR /etc/postgresql
-  - sudo ls -lR /var/lib/postgresql
+  - sudo apt-get -yq install redis-server
+  - sudo ls -lR /etc/redis
 
