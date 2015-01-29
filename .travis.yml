@@ -10,4 +10,4 @@ before_install: True
 install: True
 
 script:
-  - cat /etc/apt/sources.list
+  - cat /proc/meminfo
