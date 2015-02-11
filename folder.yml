@@ -1,0 +1,28 @@
+---
+
+- hosts: all
+  sudo: True
+
+  vars:
+    list_first:
+      - anchor: 'line'
+
+    list_second:
+      - key: 'value1'
+        bool: True
+
+      - key: 'value2'
+        bool: False
+
+
+  tasks:
+
+    - name: Do the needful
+      debug:
+        msg: '{{ item.0.anchor + " | " + item.1.key + " | " + item.1.key }}'
+      with_nested:
+        - list_first
+        - list_second
+      when: item.0.anchor is defined and item.0.anchor and
+            item.1.bool is defined and item.1.bool
+

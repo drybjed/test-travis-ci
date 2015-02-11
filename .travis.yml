@@ -4,10 +4,12 @@ language: 'python'
 python: '2.7'
 
 virtualenv:
-  system_site_packages: True
+  system_site_packages: true
 
 before_install: True
 install: True
 
 script:
-  - cat /proc/meminfo
+  - 'git clone --depth 1 https://github.com/nickjj/rolespec'
+  - 'cd rolespec ; bin/rolespec -r https://github.com/drybjed/test-suite'
+
