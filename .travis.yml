@@ -14,4 +14,5 @@ script:
   #- 'cd rolespec ; bin/rolespec -r https://github.com/drybjed/test-suite'
   - 'sudo apt-get -y install libcap2-bin'
   - 'sudo capsh --print'
+  - 'sudo getcap $(readlink -f /sbin/iptables)'
 
