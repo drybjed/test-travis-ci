@@ -15,4 +15,5 @@ script:
   - 'sudo apt-get -y install libcap2-bin'
   - 'sudo capsh --print'
   - 'sudo getcap $(readlink -f /sbin/iptables)'
+  - 'echo "Separate branch test"'
 
